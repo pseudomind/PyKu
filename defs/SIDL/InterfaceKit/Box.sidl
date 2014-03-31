@@ -143,7 +143,6 @@
 			<method name="InvalidateLayout">
 				<param name="descendants" type="bool" default="false" action="input" />
 			</method>
-			<method name="DoLayout" />
 		</functions>
 	</binding>
 </bindings>

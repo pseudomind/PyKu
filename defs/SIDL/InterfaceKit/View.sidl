@@ -32,14 +32,6 @@
 				<param name="deep" type="bool" default="true" action="input" />
 				<return type="status_t" action="error" success="B_OK" />
 			</method>
-			<method name="AllUnarchived">
-				<param name="archive" type="BMessage*" action="input" />
-				<return type="status_t" action="error" success="B_OK" />
-			</method>
-			<method name="AllArchived">
-				<param name="archive" type="BMessage*" action="input" />
-				<return type="status_t" action="error" success="B_OK" />
-			</method>
 <!-- Events not yet implemented for this object
 			<event name="AttachedToWindow" />
 			<event name="AllAttached" />

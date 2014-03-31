@@ -65,7 +65,6 @@
 				<return type="void" />
 			</method>
 			<method name="ResizeToPreferred" />
-			<method name="DoLayout" />
 <!-- Events not yet implemented for this object
 			<event name="FrameMoved">
 				<param name="newPosition" type="BPoint" action="input" />
@@ -77,9 +76,6 @@
 				<return type="void" />
 			</event>
 -->
-			<method name="InvalidateLayout">
-				<param name="descendants" type="bool" default="false" action="input" />
-			</method>
 			<method name="MakeFocus">
 				<param name="focused" type="bool" default="true" action="input" />
 			</method>
