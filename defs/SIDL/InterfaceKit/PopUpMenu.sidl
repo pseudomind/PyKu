@@ -1,0 +1,107 @@
+<bindings name="Haiku::PopUpMenu">
+	<doc>Exposes the PopUpMenu object</doc>
+	<binding source="BPopUpMenu" source-inherits="BMenu" target="Haiku::PopUpMenu" target-inherits="Haiku::Menu">
+		<doc>Exposes the PopUpMenu object</doc>
+		<functions>
+			<constructor>
+				<doc>Creates a PopUpMenu.</doc>
+				<param name="name" type="const char*" action="input" />
+				<param name="radioMode" type="bool" action="input" default="true" />
+				<param name="labelFromMarked" type="bool" action="input" default="true" />
+				<param name="layout" type="menu_layout" action="input" default="B_ITEMS_IN_COLUMN" />
+			</constructor>
+			<constructor overload-name="FromArchive">
+				<param name="archive" type="BMessage*" action="input" />
+			</constructor>
+			<destructor />
+			<method name="Instantiate">
+				<doc>Instantiate [b]must[/b] return a [name]Haiku::Archivable[/name]</doc>
+				<param name="data" type="BMessage*" action="input" />
+				<return type="BArchivable*" action="output" />
+			</method>
+			<method name="Archive">
+				<param name="data" type="BMessage*" action="output" />
+				<param name="deep" type="bool" default="true" action="input" />
+				<return type="status_t" action="error" success="B_OK" />
+			</method>
+			<method name="Go">
+				<doc>Displays the PopUpMenu.</doc>
+				<param name="screenPoint" type="BPoint" action="input" />
+				<param name="deliversMessage" type="bool" action="input" default="false" />
+				<param name="openAnyway" type="bool" action="input" default="false" />
+				<param name="asynchronous" type="bool" action="input" default="false" />
+				<return type="BMenuItem*" />
+			</method>
+			<method name="Go" overload-name="GoWithClickRect">
+				<doc>Displays the PopUpMenu.</doc>
+				<param name="screenPoint" type="BPoint" action="input" />
+				<param name="deliversMessage" type="bool" action="input" />
+				<param name="openAnyway" type="bool" action="input" />
+				<param name="clickToOpenRect" type="BRect" action="input" />
+				<param name="asynchronous" type="bool" action="input" default="false" />
+				<return type="BMenuItem*" />
+			</method>
+<!-- Events not yet implemented for this object
+			<event name="MessageReceived">
+				<param name="message" type="BMessage*" action="input" must-not-delete="true" />
+				<return type="void" />
+			</event>
+			<event name="MouseDown">
+				<param name="point" type="BPoint" action="input" />
+				<return type="void" />
+			</event>
+			<event name="MouseUp">
+				<param name="point" type="BPoint" action="input" />
+				<return type="void" />
+			</event>
+			<event name="MouseMoved">
+				<param name="point" type="BPoint" action="input" />
+				<param name="transit" type="uint32" action="input" />
+				<param name="message" type="BMessage*" action="input" />
+				<return type="void" />
+			</event>
+			<event name="AttachedToWindow" />
+			<event name="DetachedFromWindow" />
+			<event name="FrameMoved">
+				<param name="newPosition" type="BPoint" action="input" />
+				<return type="void" />
+			</event>
+			<event name="FrameResized">
+				<param name="newWidth"  type="float" action="input" />
+				<param name="newHeight" type="float" action="input" />
+				<return type="void" />
+			</event>
+-->
+			<method name="ResolveSpecifier">
+				<param name="message" type="BMessage*" action="input" />
+				<param name="index" type="int32" action="input" />
+				<param name="specifier" type="BMessage*" action="input" />
+				<param name="form" type="int32" action="input" />
+				<param name="property" type="const char*" action="input" />
+				<return type="BHandler*" action="output" />
+			</method>
+			<method name="GetSupportedSuites">
+				<param name="data" type="BMessage*" action="input" />
+				<return type="status_t" action="error" success="B_OK" />
+			</method>
+			<method name="ResizeToPreferred" />
+			<method name="GetPreferredSize">
+				<param name="width" type="float" pass-as-pointer="true" action="output" />
+				<param name="height" type="float" pass-as-pointer="true" action="output" />
+				<return type="void" />
+			</method>
+<!-- Events not yet implemented for this object
+			<event name="AllAttached" />
+			<event name="AllDetached" />
+-->
+			<method name="SetAsyncAutoDestruct">
+				<doc>Enables or disables auto-destruct for the PopUpMenu; of true, the associated Menu is deleted when the PopUpMenu closes.</doc>
+				<param name="state" type="bool" action="input" />
+			</method>
+			<method name="AsyncAutoDestruct">
+				<doc>Returns true if auto-destruct is enabled.</doc>
+				<return type="bool" action="output" />
+			</method>
+		</functions>
+	</binding>
+</bindings>

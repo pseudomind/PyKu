@@ -1,0 +1,52 @@
+<bindings name="Haiku::Point">
+	<doc>Exposes the Point object</doc>
+	<binding source="BPoint" target="Haiku::Point">
+		<doc>Exposes the Point object</doc>
+		<properties>
+			<property name="x" type="float">
+				<doc>x coordinate</doc>
+			</property>
+			<property name="y" type="float">
+				<doc>y coordinate</doc>
+			</property>
+		</properties>
+		<functions>
+			<constructor>
+				<doc>...</doc>
+				<param name="x" type="float" action="input" />
+				<param name="y" type="float" action="input" />
+			</constructor>
+			<constructor overload-name="FromPoint">
+				<doc>...</doc>
+				<param name="point" type="BPoint" action="input" />
+			</constructor>
+			<constructor overload-name="Empty">
+				<doc>...</doc>
+			</constructor>
+			<destructor />
+			<method name="Set">
+				<param name="x" type="float" action="input" />
+				<param name="y" type="float" action="input" />
+			</method>
+			<method name="ConstrainTo">
+				<doc>Forces the Point within the Rect if it is not already there.</doc>
+				<param name="rect" type="BRect" action="input" />
+			</method>
+			<method name="PrintToStream">
+				<doc>Prints the contents to standard out as [code]BRect(left, top, right, bottom)[/code]</doc>
+			</method>
+		</functions>
+		<operators>
+			<operator name="neg" />
+			<operator name="==" />
+			<operator name="!=" />
+			<operator name="+" />
+			<operator name="-" />
+			<operator name="+=" />
+			<operator name="-=" />
+		</operators>
+		<constants>
+			<constant name="B_ORIGIN" type="BPoint" group="" />
+		</constants>
+	</binding>
+</bindings>

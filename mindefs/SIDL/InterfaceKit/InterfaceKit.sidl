@@ -1,0 +1,54 @@
+<bindings name="Haiku::InterfaceKit">
+	<doc>Exposes the Haiku Interface Kit</doc>
+	<include>
+		<file name="Window.h" />
+		<file name="Button.h" />
+		<file name="Rect.h" />
+	</include>
+	<link>
+		<lib name="libbe" />
+	</link>
+	<types>
+		<type name="uint32"     builtin="unsigned long" />
+		<type name="int32"      builtin="long" />
+		<type name="window_type" builtin="int" />
+		<type name="window_look" builtin="int" />
+		<type name="window_feel" builtin="int" />
+<!--
+Objects defined by this interface automatically have data types (plain and
+pointer) created for them. If you need objects not defined in this interface,
+you need to define those types in this section.
+-->
+		<type name="BMessage*" builtin="object_ptr" target="Haiku::Message" />
+	</types>
+	<import>
+		<file name="Window.sidl" />
+		<file name="Rect.sidl" />
+		<file name="Button.sidl" />
+		<file name="View.sidl" />
+	</import>
+	<binding source="InterfaceKit" target="Haiku::InterfaceKit">
+		<doc>Exposes the Haiku Interface Kit</doc>
+		<constants>
+			<!-- alignment constants -->
+			<constant name="B_ALIGN_LEFT" type="int" group="">
+				<doc>...</doc>
+			</constant>
+			<constant name="B_ALIGN_RIGHT" type="int" group="">
+				<doc>...</doc>
+			</constant>
+			<constant name="B_ALIGN_CENTER" type="int" group="">
+				<doc>...</doc>
+			</constant>
+			<constant name="B_PLAIN_BORDER" type="int" group="">
+				<doc>...</doc>
+			</constant>
+			<constant name="B_FANCY_BORDER" type="int" group="">
+				<doc>...</doc>
+			</constant>
+			<constant name="B_NO_BORDER" type="int" group="">
+				<doc>...</doc>
+			</constant>
+		</constants>
+	</binding>
+</bindings>

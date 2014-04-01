@@ -1,0 +1,127 @@
+<bindings name="Haiku::Control">
+	<doc>Exposes the Control object</doc>
+	<binding source="BControl" source-inherits="BView BInvoker" target="Haiku::Control" target-inherits="Haiku::View Haiku::Invoker">
+		<doc>Exposes the Control object</doc>
+		<functions>
+			<constructor>
+				<doc>Creates a Control.</doc>
+				<param name="frame" type="BRect" action="input" />
+				<param name="name" type="const char*" action="input" />
+				<param name="label" type="const char*" action="input" />
+				<param name="message" type="BMessage*" action="input" must-not-delete="true" />
+				<param name="resizingMode" type="uint32" action="input" />
+				<param name="flags" type="uint32" action="input" />
+			</constructor>
+			<constructor overload-name="WithoutFrame">
+				<doc>...</doc>
+				<param name="name" type="const char*" action="input" />
+				<param name="label" type="const char*" action="input" />
+				<param name="message" type="BMessage*" action="input" must-not-delete="true" />
+				<param name="flags" type="uint32" action="input" />
+			</constructor>
+			<constructor overload-name="FromArchive">
+				<param name="archive" type="BMessage*" action="input" />
+			</constructor>
+			<destructor />
+			<method name="Instantiate">
+				<doc>Instantiate [b]must[/b] return a [name]Haiku::Archivable[/name]</doc>
+				<param name="data" type="BMessage*" action="input" />
+				<return type="BArchivable*" action="output" />
+			</method>
+			<method name="Archive">
+				<param name="data" type="BMessage*" action="output" />
+				<param name="deep" type="bool" default="true" action="input" />
+				<return type="status_t" action="error" success="B_OK" />
+			</method>
+<!-- Events not yet implemented for this object
+			<event name="WindowActivated">
+				<param name="state" type="bool" action="input" />
+				<return type="void" />
+			</event>
+			<event name="AttachedToWindow" />
+			<event name="DetachedFromWindow" />
+			<event name="AllAttached" />
+			<event name="AllDetached" />
+			<event name="MessageReceived">
+				<param name="message" type="BMessage*" action="input" must-not-delete="true" />
+				<return type="void" />
+			</event>
+-->
+			<method name="MakeFocus">
+				<param name="focused" type="bool" default="true" action="input" />
+			</method>
+<!-- Events not yet implemented for this object
+			<event name="KeyDown">
+				<param name="bytes" type="const char*" action="input" string-length="numBytes" />
+				<param name="numBytes" type="int32" action="length[bytes]" />
+				<return type="void" />
+			</event>
+			<event name="MouseDown">
+				<param name="point" type="BPoint" action="input" />
+				<return type="void" />
+			</event>
+			<event name="MouseUp">
+				<param name="point" type="BPoint" action="input" />
+				<return type="void" />
+			</event>
+			<event name="MouseMoved">
+				<param name="point" type="BPoint" action="input" />
+				<param name="transit" type="uint32" action="input" />
+				<param name="message" type="BMessage*" action="input" />
+				<return type="void" />
+			</event>
+-->
+			<method name="SetLabel">
+				<param name="string" type="const char*" action="input" />
+				<return type="void" />
+			</method>
+			<method name="Label">
+				<return type="const char*" action="output" />
+			</method>
+			<method name="SetValue">
+				<param name="value" type="int32" action="input" />
+				<return type="void" />
+			</method>
+			<method name="Value">
+				<return type="int32" action="output" />
+			</method>
+			<method name="SetEnabled">
+				<param name="enabled" type="bool" action="input" />
+				<return type="void" />
+			</method>
+			<method name="IsEnabled">
+				<return type="bool" action="output" />
+			</method>
+			<method name="GetPreferredSize">
+				<param name="width" type="float" pass-as-pointer="true" action="output" />
+				<param name="height" type="float" pass-as-pointer="true" action="output" />
+				<return type="void" />
+			</method>
+			<method name="ResizeToPreferred" />
+			<method name="Invoke">
+				<param name="message" type="BMessage*" default="NULL" action="output" />
+				<return type="status_t" action="error" success="B_OK" />
+			</method>
+			<method name="ResolveSpecifier">
+				<param name="message" type="BMessage*" action="input" />
+				<param name="index" type="int32" action="input" />
+				<param name="specifier" type="BMessage*" action="input" />
+				<param name="form" type="int32" action="input" />
+				<param name="property" type="const char*" action="input" />
+				<return type="BHandler*" action="output" />
+			</method>
+			<method name="GetSupportedSuites">
+				<param name="data" type="BMessage*" action="input" />
+				<return type="status_t" action="error" success="B_OK" />
+			</method>
+		</functions>
+		<constants>
+			<constant name="B_CONTROL_ON" type="int" group="value">
+				<doc>...</doc>
+			</constant>
+			<constant name="B_CONTROL_OFF" type="int" group="value">
+				<doc>...</doc>
+			</constant>
+		</constants>
+	</binding>
+</bindings>
