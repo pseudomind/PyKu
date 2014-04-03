@@ -73,7 +73,7 @@ print "Generating $target\n";
 # I don't like doing this, because the uninitialized warning is often useful,
 # but I get too many false positives if I don't
 			extra_compile_args=["-Wno-multichar", "-Wno-uninitialized"],
-			runtime_library_dirs=[$libs]
+			libraries=["be", "tracker"]
 			)
 EXT
 		$packages{$pkgname} = 1;
