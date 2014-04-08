@@ -69,10 +69,13 @@ print "Generating $target\n";
 		Extension(
 			'$pkgname',
 			['$filename.cc'],
-#			extra_compile_args=["-Wno-multichar"]
-# I don't like doing this, because the uninitialized warning is often useful,
-# but I get too many false positives if I don't
-			extra_compile_args=["-Wno-multichar", "-Wno-uninitialized"],
+			description='Haiku API Bindings',
+			# extra_compile_args=["-Wno-multichar"]
+			# I don't like doing this, because the uninitialized warning is often useful,
+			# but I get too many false positives if I don't
+			extra_compile_args=[
+				"-Wno-multichar", 
+				"-Wno-uninitialized"],
 			libraries=["be", "tracker"]
 			)
 EXT
@@ -109,7 +112,9 @@ import os
 # don't hard link! some systems attempt to hard link and fail
 # (AFS, cygwin, maybe others)
 del os.link
+
 from distutils.core import setup, Extension
+
 setup(name='$name',
 	version='$bindings->{version}',
 	packages=[$pypackages],
@@ -146,4 +151,3 @@ RULE
 }
 
 1;
-
