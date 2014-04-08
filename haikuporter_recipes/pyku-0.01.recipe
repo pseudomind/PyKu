@@ -1,0 +1,57 @@
+#----------------------------------------#
+# This is a build recipe for haikuporter #
+#----------------------------------------#
+
+SUMMARY="pyku"
+
+DESCRIPTION="
+PyKu is a Python binding for the native Haiku-OS API.
+"
+
+HOMEPAGE="https://github.com/pseudomind/PyKu"
+
+SRC_URI="git://github.com/pseudomind/PyKu.git"
+
+REVISION="1"
+
+LICENSE="MIT"
+
+COPYRIGHT="PyKu developers"
+
+ARCHITECTURES="x86 x86_gcc2"
+
+PROVIDES="
+	pyku = $portVersion
+	"
+
+REQUIRES="
+        haiku >= $haikuVersion
+        "
+
+BUILD_REQUIRES="
+        haiku_devel
+        cmd:gcc
+        cmd:perl
+        cmd:python
+        cmd:bash
+        "
+
+BUILD()
+{
+	cd generator.perl
+	sh generate_python.sh
+	cd ../generated/python/Haiku
+	python setup.py build
+	cd ../../../
+}
+
+INSTALL()
+{
+	cd generated/python/Haiku
+	python setup.py install --prefix=$prefix
+	cd ../../../
+}
+
+PROVIDES="
+	pyku$secondaryArchSuffix = $portVersion
+	"
