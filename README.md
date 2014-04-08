@@ -13,15 +13,16 @@ https://github.com/HaikuArchives/HaikuLanguageBindings
 Current Status
 --------------
 
-At this point, this project is know to not build under a current haiku-gcc4-hybrid
-system. It is suspected, that it will not build on the other architectures either.
+At this point, this project appears to build under a recent haiku-gcc4-hybrid
+system. It is not known, but it is suspected PyKu may not build on the other architectures without some further modifications.
 
-Eventually the goal will be to produce recipes for building the bindings for the
-various architectures which are available. When this point is reached, the state
-of this repository with respect to those builds should be listed below.
+The state of this repository with respect to the different haikuporter builds should be listed below.
 
-| Architecture  | Build Status  |
-| ------------- | :-----------: |
-| x86_gcc2      | `Not Working` |
-| x86_gcc4      | `Not Working` |
-| x64           | `Not Working` |
+
+PyKu 0.01:
+
+| Architecture  | Build Status  | Haiku Revision |
+| ------------- | :-----------: | :------------: |
+| x86_gcc2      | `Unknown`     | -              |
+| x86_gcc4      | `Unknown`     | -              |
+| x64           | `Working`     | hrev47061      |
