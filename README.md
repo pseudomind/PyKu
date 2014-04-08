@@ -18,11 +18,10 @@ system. It is not known, but it is suspected PyKu may not build on the other arc
 
 The state of this repository with respect to the different haikuporter builds should be listed below.
 
-
-PyKu 0.01:
+**PyKu 0.01:**
 
 | Architecture  | Build Status  | Haiku Revision |
 | ------------- | :-----------: | :------------: |
 | x86_gcc2      | `Unknown`     | -              |
-| x86_gcc4      | `Unknown`     | -              |
-| x64           | `Working`     | hrev47061      |
+| x86_gcc4      | `Working`     | hrev47061      |
+| x64           | `Unknown`     | -              |
