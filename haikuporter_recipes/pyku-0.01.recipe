@@ -1,12 +1,6 @@
-#----------------------------------------#
-# This is a build recipe for haikuporter #
-#----------------------------------------#
-
 SUMMARY="pyku"
 
-DESCRIPTION="
-PyKu is a Python binding for the native Haiku-OS API.
-"
+DESCRIPTION="PyKu is a Python binding for the native Haiku-OS API."
 
 HOMEPAGE="https://github.com/pseudomind/PyKu"
 
